@@ -1,31 +1,20 @@
-International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: "a" maps to ".-", "b" maps to "-...", "c" maps to "-.-.", and so on.
+771. Jewels and Stones
 
-For convenience, the full table for the 26 letters of the English alphabet is given below:
+### My Solution ###
 
-[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
-Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, "cab" can be written as "-.-.-....-", (which is the concatenation "-.-." + "-..." + ".-"). We'll call such a concatenation, the transformation of a word.
+class Solution(object):
+    def numJewelsInStones(self, J, S):
+        """
+        :type J: str
+        :type S: str
+        :rtype: int
+        """
+        return sum(jewels in J for jewels in S)
+                  
+      
 
-Return the number of different transformations among all words we have.
 
-Example:
-Input: words = ["gin", "zen", "gig", "msg"]
-Output: 2
-Explanation: 
-The transformation of each word is:
-"gin" -> "--...-."
-"zen" -> "--...-."
-"gig" -> "--...--."
-"msg" -> "--...--."
-
-There are 2 different transformations, "--...-." and "--...--.".
- 
-
-Note:
-
-The length of words will be at most 100.
-Each words[i] will have length in range [1, 12].
-words[i] will only consist of lowercase letters.
-
+804. Unique Morse Code Words
 
 ### My Solution ###
 
@@ -47,9 +36,10 @@ class Solution(object):
             l.append(t)
             t = ''
 
-        return len(set(l))
-        
-     
+        return len(set(l)) 
+        #Count unique values in Python list - use set
+
+             
 ### Other's Solution ###
 
 class Solution(object):
@@ -63,3 +53,63 @@ class Solution(object):
                 for word in words}
 
         return len(seen)
+        
+
+
+
+
+832. Flipping an Image
+
+class Solution(object):
+    def flipAndInvertImage(self, A):
+        """
+        :type A: List[List[int]]
+        :rtype: List[List[int]]
+        """         
+        for row in A:
+            row.reverse() # reversethe row
+
+            for i in xrange(len(row)):
+                row[i] = row[i]^1  # invert the image
+                            
+        return A
+    
+    """
+     for i in xrange((len(row)+1)/2):
+        row[i], row[~i] = row[~i] ^ 1, row[i] ^ 1
+    return A
+    """
+    
+  
+  412. Fizz Buzz
+  
+  class Solution(object):
+    def fizzBuzz(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        li = []
+        for i in range(1,n+1):
+            if i%3==0 and i%5==0:
+                li.append("FizzBuzz") 
+            elif i%3==0:
+                li.append("Fizz")
+            elif i%5==0:
+                li.append("Buzz")
+            else:
+                li.append("{}".format(i))
+        return li
+        
+    
+        """
+        one-line solution
+        
+        return [x for x in map(lambda i : 'Fizz' * (not i%3) + 'Buzz' * (not i%5) or str(i), range(1, n+1))]
+        """
+
+        
+        
+  
+ 
+
