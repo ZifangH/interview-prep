@@ -108,8 +108,12 @@ class Solution(object):
         return [x for x in map(lambda i : 'Fizz' * (not i%3) + 'Buzz' * (not i%5) or str(i), range(1, n+1))]
         """
 
-        
-        
+     
+     
+    Resoures:
+    
+    https://www.quora.com/How-can-I-reverse-a-list-in-python
+    https://www.programiz.com/c-programming/bitwise-operators
   
  
 
