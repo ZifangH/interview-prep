@@ -46,3 +46,27 @@ class Solution(object):
                 nums[i], nums[zero] = nums[zero], nums[i]
                 zero += 1
                 
+  
+  
+  
+171. Excel Sheet Column Number
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        return sum([(ord(c.upper())-64)*26**position for position,c in enumerate(s[::-1])])
+    # enumerate(sequence, start=0)
+    # Return an enumerate object. sequence must be a sequence, an iterator, or some other 
+    # object which supports iteration. 
+    
+    
+    or 
+    
+    return reduce(lambda x, y : x * 26 + y, [ord(c) - 64 for c in s])
+    
+    # reduce(function, iterable[, initializer])
+    # Apply function of two arguments cumulatively to the items of iterable, from left to right, 
+    # so as to reduce the iterable to a single value. 
+    # For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5).
